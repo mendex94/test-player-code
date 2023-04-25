@@ -6,11 +6,9 @@ public class Counter {
     // place. We need a function that counts the number of sheep present in the
     // array (true means present).
     int count = 0;
-    for (int i = 0; i < arrayOfSheeps.length; i++) {
-      if (arrayOfSheeps[i] == true) {
-        count++;
-      }
-    }
+
+    // Coloque seu código aqui.
+
     return count;
   }
 }
