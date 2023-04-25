@@ -6,9 +6,6 @@ import java.io.PrintStream;
 import java.lang.reflect.Method;
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class App {
     static Boolean[] array1 = { true, true, true, false,
@@ -21,13 +18,12 @@ public class App {
 
     public static void main(String[] args) {
 
-        String code = readJavaFileToString("src/main/java/com/test/Counter.java");
-        String result = testPlayerCode(code);
+        String result = testPlayerCode();
 
         System.out.println(result);
     }
 
-    public static String testPlayerCode(String code) {
+    public static String testPlayerCode() {
         try {
             OutputStream os = new ByteArrayOutputStream();
             PrintStream ps = new PrintStream(os);
@@ -57,18 +53,5 @@ public class App {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static String readJavaFileToString(String fileName) {
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                sb.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return sb.toString();
     }
 }
